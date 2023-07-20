@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fair Vision Learning</title>
+    <title>Fairness in Visual Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 <body>
-    Hello!
+    <div class="container-fluid p-5 mb-5">
+        <div class="container text-center d-flex flex-column align-items-center" style="width: 75%;">
+            <h1 class><b>Advancing Fairness in Visual Learning</b></h1>
+
+            <p class="pt-3"><b>Leonardo Iurada<sup>1</sup>, Silvia Bucci<sup>1</sup>, Timothy M. Hospedales<sup>3</sup>, Tatiana Tommasi<sup>1,2</sup></b></p>
+            <div class="container d-flex justify-content-evenly">
+                <p><sup>1</sup>Politecnico di Torino</p>
+                <p><sup>2</sup>Italian Institute of Technology</p>
+                <p><sup>3</sup>University of Edinburgh</p>
+            </div>
+
+            <div class="container d-flex justify-content-center pt-3 pb-3">
+                <a href="https://arxiv.org/pdf/2303.14411.pdf"><button type="button" class="btn btn-dark btn-small m-2"><i class="fa fa-newspaper-o"></i> Paper</button></a>
+                <a href="https://arxiv.org/abs/2303.14411.pdf"><button type="button" class="btn btn-dark btn-small m-2"><i class="ai ai-arxiv"></i> ArXiv</button></a>
+                <a href="https://github.com/iurada/fairness_crossdomain"><button type="button" class="btn btn-dark btn-small m-2"><i class="fa fa-github"></i> Code</button></a>
+            </div>
+
+            <img src="images/teaser.png" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser">
+            <p class="text-start" style="text-align: justify;"><b>Overview:</b> Starting from a model that exhibits some degree of unfairness 
+                as evidenced by the Difference in Accuracy between protected groups (left). We exploit Cross-Domain 
+                (CD) learning to reduce the visual domain shift among groups and improve the generalization 
+                ability of the model, obtaining an unfairness mitigation effect (right).</p>
+
+            <h5 class="fw-bold pt-5">Abstract</h5>
+            <p class="fst-italic" style="width: 60%; text-align: justify;">
+                Deep learning-based recognition systems are deployed at scale for several real-world applications 
+                that inevitably involve our social life. Although being of great support when making complex decisions, 
+                they might capture spurious data correlations and leverage sensitive attributes (e.g. age, gender, 
+                ethnicity). How to factor out this information while keeping a high prediction performance is a task 
+                with still several open questions, many of which are shared with those of the domain adaptation and 
+                generalization literature which focuses on avoiding visual domain biases. In this work, we propose an 
+                in-depth study of the relationship between cross-domain learning (CD) and model fairness by introducing a 
+                benchmark on face and medical images spanning several demographic groups as well as classification and 
+                localization tasks. After having highlighted the limits of the current evaluation metrics, we introduce 
+                a new Harmonic Fairness (HF) score to assess jointly how fair and accurate every model is with respect 
+                to a reference baseline. Our study covers 14 CD approaches alongside three state-of-the-art fairness 
+                algorithms and shows how the former can outperform the latter. Overall, our work paves the way for a 
+                more systematic analysis of fairness problems in computer vision.
+            </p>
+            
+            <div class="container pt-5">
+                <h5 class="fw-bold pb-3">Benchmark Results</h5>
+                <p class="fw-bold text-start">CelebA - 13 Attributes Experiment</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
