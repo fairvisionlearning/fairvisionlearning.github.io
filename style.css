@@ -6,6 +6,14 @@
     width: 60%;
 }
 
+.bbb {
+    border-bottom: 1px solid black;
+}
+
+.brb {
+    border-right: 1px solid black;
+}
+
 @media only screen and (max-width: 1200px) {
     .img-teaser, .p-abs {
         width: 100%;
