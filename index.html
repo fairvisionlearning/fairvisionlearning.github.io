@@ -13,14 +13,76 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <script defer src="script.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico">
+
+    <script defer src="script.js"></script>
+
+    <script defer src="tables/celeba_13_attribs.js"></script>
 </head>
 
 <body>
     <div class="container p-5 mb-5 text-center d-flex flex-column align-items-center">
 
-        <h1 class><b>Advancing Fairness in Visual Learning</b></h1>
+        <h1><b>Advancing Fairness in Visual Learning</b></h1>
+        <hr style="border-bottom: 1px black; width: 100%;"/>
+
+        <div id="head-carousel" class="carousel carousel-dark slide pt-5" data-bs-ride="carousel">
+            <div id="inner-carousel" class="carousel-inner">
+            </div>
+        </div>
+
+        <h5 class="fw-bold pt-5">Welcome!</h5>
+        <p style="text-align: justify;">
+            In a world increasingly shaped by artificial intelligence, it is essential to ensure that these technologies are 
+            not only accurate and powerful but also equitable and unbiased. We are committed to driving a transformative shift 
+            in the realm of visual learning, where cutting-edge research and innovation converge to create a future where 
+            fairness is at the heart of every pixel. Join us on this journey as we advance the standards of visual AI and strive 
+            for a more just and inclusive world through our pioneering endeavors. Together, let's revolutionize the future of technology 
+            - one that embraces diversity, empathy, and above all, fairness.
+        </p>
+        <p class="pt-3" style="text-align: justify;">
+            We firmly believe that the world of visual learning demands a comprehensive and in-depth analysis of fairness. 
+            As we witness the rapid evolution of AI-driven technologies, we recognize the profound impact they have on our 
+            daily lives, from facial recognition systems to autonomous vehicles and beyond. To ensure these powerful visual 
+            tools serve society responsibly, it is imperative to address the critical issue of bias and inequality head-on.
+        </p>
+
+        <h5 class="fw-bold pt-5">Visual Learning</h5>
+        <p class="pt-3" style="text-align: justify;">
+            In the quest to address the multitude of challenges within visual learning, it is crucial to note that specific 
+            areas have not received the attention they deserve when it comes to algorithmic fairness. For instance, 
+            the absence of comprehensive studies on localization/regression brings forth 
+            untapped potential for enhancing fairness within these critical components of visual AI. Our project aims 
+            to shed light on these neglected areas and pioneer research that addresses fairness concerns across all aspects 
+            of visual learning.
+        </p>
+
+        <h5 class="fw-bold pt-5">Fairness Metrics</h5>
+        <p class="pt-3" style="text-align: justify;">
+            As we delve into this endeavor, it becomes evident that no aspect should be taken for granted, and metrics, 
+            in particular, warrant meticulous scrutiny. We understand that the choice of metrics can profoundly impact 
+            the evaluation and eventual outcomes of visual learning algorithms. By critically examining and refining these 
+            metrics, we can ensure a more accurate and just assessment of AI models' performance.
+        </p>
+
+        <h5 class="fw-bold pt-5">Fairness meets Cross-Domain Learning</h5>
+        <p class="pt-3" style="text-align: justify;">
+            Furthermore, we recognize the crucial significance 
+            of exploring various aspects concerning data, algorithms, metrics, and tasks. Embracing this complexity, we aim to 
+            forge meaningful connections between Cross-Domain Learning and Fairness, recognizing their intertwined nature.
+        </p>
+        
+
+        <p class="pt-3" style="text-align: justify;">
+            In our recent work titled <i>"Fairness meets Cross-Domain Learning: A New Perspective on Models and Metrics"</i>, 
+            we have taken a significant stride towards studying and addressing the multifaceted challenges in fair visual learning. 
+            By delving into the relationship between Fairness and Cross-Domain Learning, we resorted to standard and state-of-the-art
+            approaches to mitigate unfairness. This holds immense potential in reshaping the landscape of fair learning, as the Cross-Domain
+            literature is vast and has been thoroughly explored, contrary to the one of fair visual learning. 
+        </p>
+        <hr style="border-bottom: 1px black; width: 100%;"/>
+        
+        <h3 class="pt-5"><b>Fairness meets Cross-Domain Learning: a new perspective on Models and Metrics</b></h3>
 
         <p class="pt-3"><b>Leonardo Iurada<sup>1</sup>, Silvia Bucci<sup>1</sup>, Timothy M. Hospedales<sup>3</sup>,
                 Tatiana Tommasi<sup>1,2</sup></b></p>
@@ -43,145 +105,37 @@
             <div id="inner-carousel" class="carousel-inner">
             </div>
         </div>
-        <!--img src="images/teaser.png" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser"-->
+        <img src="images/teaser.png" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser">
 
 
-        <!--p class="text-start" style="text-align: justify;"><b>Overview:</b> Starting from a model that exhibits some
+        <p class="text-start" style="text-align: justify;"><b>Overview:</b> Starting from a model that exhibits some
             degree of unfairness
             as evidenced by the Difference in Accuracy between protected groups (left). We exploit Cross-Domain
             (CD) learning to reduce the visual domain shift among groups and improve the generalization
-            ability of the model, obtaining an unfairness mitigation effect (right).</p-->
+            ability of the model, obtaining an unfairness mitigation effect (right).</p>
 
-        <h5 class="fw-bold pt-5">Abstract</h5>
-        <p class="fst-italic p-abs" style="text-align: justify;">
-            Deep learning-based recognition systems are deployed at scale for several real-world applications
-            that inevitably involve our social life. Although being of great support when making complex decisions,
-            they might capture spurious data correlations and leverage sensitive attributes (e.g. age, gender,
-            ethnicity). How to factor out this information while keeping a high prediction performance is a task
-            with still several open questions, many of which are shared with those of the domain adaptation and
-            generalization literature which focuses on avoiding visual domain biases. In this work, we propose an
-            in-depth study of the relationship between cross-domain learning (CD) and model fairness by introducing a
-            benchmark on face and medical images spanning several demographic groups as well as classification and
-            localization tasks. After having highlighted the limits of the current evaluation metrics, we introduce
-            a new Harmonic Fairness (HF) score to assess jointly how fair and accurate every model is with respect
-            to a reference baseline. Our study covers 14 CD approaches alongside three state-of-the-art fairness
-            algorithms and shows how the former can outperform the latter. Overall, our work paves the way for a
-            more systematic analysis of fairness problems in computer vision.
-        </p>
+            <h5 class="fw-bold pt-5">Abstract</h5>
+            <p class="fst-italic p-abs" style="text-align: justify;">
+                Deep learning-based recognition systems are deployed at scale for several real-world applications
+                that inevitably involve our social life. Although being of great support when making complex decisions,
+                they might capture spurious data correlations and leverage sensitive attributes (e.g. age, gender,
+                ethnicity). How to factor out this information while keeping a high prediction performance is a task
+                with still several open questions, many of which are shared with those of the domain adaptation and
+                generalization literature which focuses on avoiding visual domain biases. In this work, we propose an
+                in-depth study of the relationship between cross-domain learning (CD) and model fairness by introducing a
+                benchmark on face and medical images spanning several demographic groups as well as classification and
+                localization tasks. After having highlighted the limits of the current evaluation metrics, we introduce
+                a new Harmonic Fairness (HF) score to assess jointly how fair and accurate every model is with respect
+                to a reference baseline. Our study covers 14 CD approaches alongside three state-of-the-art fairness
+                algorithms and shows how the former can outperform the latter. Overall, our work paves the way for a
+                more systematic analysis of fairness problems in computer vision.
+            </p>
 
         <div class="container pt-5">
             <h5 class="fw-bold pb-3">Benchmark Results</h5>
 
-            <p class="fw-bold text-start">CelebA - 13 Attributes Experiment</p>
-            <table class="table table-light">
-                <thead>
-                    <tr>
-                        <th scope="col" class="brb bbb"></th>
-                        <th scope="col" class="bbb">Acc.</th>
-                        <th scope="col" class="bbb">MGA</th>
-                        <th scope="col" class="bbb">mGA</th>
-                        <th scope="col" class="brb bbb">DA</th>
-                        <th scope="col" class="bbb">DEO</th>
-                        <th scope="col" class="brb bbb">DEOdds</th>
-                        <th scope="col" class="brb bbb">&#916;DTO</th>
-                        <th scope="col" class="bbb">&#963;(HF)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="brb bbb">Baseline [1]</th>
-                        <td class="bbb">0.00</td><td class="bbb">0.00</td><td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="brb bbb">0.00</td>
-                        <td class="bbb">0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">LSR [2]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">SWAD [3]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb bbb">L2D [4]</th>
-                        <td class="bbb">0.00</td><td class="bbb">0.00</td><td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="brb bbb">0.00</td>
-                        <td class="bbb">0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">DANN [5]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">CDANN [6]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb bbb">SagNets [7]</th>
-                        <td class="bbb">0.00</td><td class="bbb">0.00</td><td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="brb bbb">0.00</td>
-                        <td class="bbb">0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">AFN [8]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">MMD [9]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb bbb">Fish [10]</th>
-                        <td class="bbb">0.00</td><td class="bbb">0.00</td><td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="brb bbb">0.00</td>
-                        <td class="bbb">0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">RelRot [11]</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb">RelRotAlign</th>
-                        <td>0.00</td><td>0.00</td><td>0.00</td><td class="brb">0.00</td>
-                        <td>0.00</td><td class="brb">0.00</td>
-                        <td class="brb">0.00</td>
-                        <td>0.000 &#177; 0.000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="brb bbb">SelfReg [12]</th>
-                        <td class="bbb">0.00</td><td class="bbb">0.00</td><td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="bbb">0.00</td><td class="brb bbb">0.00</td>
-                        <td class="brb bbbx">0.00</td>
-                        <td class="bbb">0.000 &#177; 0.000</td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <p class="fw-bold">CelebA - 13 Attributes Experiment</p>
+            <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
         </div>
 
     </div>

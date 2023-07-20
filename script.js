@@ -30,29 +30,10 @@ for (const file of pics) {
     }
 
     newImg.className = "center-block";
-    newImg.style = `height: 250px;`;
+    newImg.style = `height: 300px;`;
     newImg.src = file;
     newImg.alt = "...";
 
     newDiv.appendChild(newImg);
     innerCarousel.appendChild(newDiv);
 }
-
-//! CelebA - 13 Attribs. Exp.
-const celeba13 = {
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Baseline": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-};
-
-for (let k in celeba13) {
-    console.log(k, typeof(k));
-}
-
-console.log(celeba13);
