@@ -10,10 +10,24 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
+
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+    <link rel="manifest" href="images/icon/site.webmanifest">
+    <link rel="mask-icon" href="images/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="images/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
     <!--script defer src="script.js"></script-->
 
@@ -31,7 +45,7 @@
         
         <div class="container fixed-top d-flex p-3" style="background-color: white;">
             <div class="d-flex align-items-center" style="width: 85%;">
-                <img src="images/icon/logo.svg" width="50px" alt="...">
+                <img src="images/icon/logo.svg" width="45px" alt="..." style="transform: rotate(180deg);">
                 <h1 style="padding-left: 5px; position: relative; top: 5px;"><b>Advancing Fairness in Visual Learning</b></h1>
             </div>
         </div>
@@ -79,9 +93,52 @@
             fairness by evaluating 14 CD learning approaches alongside three state-of-the-art (SOTA) fairness algorithms. 
             We conclude that the former can outperform the latter.
         </p>
-        <p class="pt-3 text-start" style="text-align: left;">
-            Here is the list of the evaluated methods...
-        </p>
+        <p class="pt-3 text-start d-flex" style="text-align: left;">Here is the list of the evaluated methods:</p>
+        <div class="table-responsive p-abs" style="border: 0;">
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">Baseline</th>
+                        <td style="text-align: left;">
+                            <p>
+                                For our classification experiments we follow the fairness literature [1] adopting as baseline ResNet50
+                                with standard cross-entropy minimization objective, pretrained on ImageNet.
+                            </p>
+                            <p>
+                                For landmark detection we follow [2, 3] and consider ResNet18 pre-trained on ImageNet with a dedicated 
+                                head composed of deconvolutional layers. It is optimized with an L2 loss to reduce the discrepancy between 
+                                the predicted probability distribution of the location of each landmark and the ground truth
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">LSR</th>
+                        <td style="text-align: left;">
+                            Encourages the model to avoid overconfidence by smoothing data annotation. [4]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">SWAD</th>
+                        <td style="text-align: left;">
+                            Searches for flat minima. [5]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">RSC</th>
+                        <td style="text-align: left;">
+                            Is based on a refined drop-out. [6]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">L2D</th>
+                        <td style="text-align: left;">
+                            Includes a module trained to synthesize new images with a style distribution 
+                            complementary to that of the training data. [7]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
 
         <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Metrics</p>
@@ -95,9 +152,34 @@
             analyze several existing group fairness criteria and highlight the lack of a metric that properly 
             aggregates overall performance and fairness level to assess the quality of a model.
         </p>
-        <p class="pt-3 text-start" style="text-align: left;">
-            List of metrics...
-        </p>
+        <div class="table-responsive p-abs" style="border: 0;">
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">Acc.</th>
+                        <td style="text-align: left;">Classification accuracy.</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">MGA</th>
+                        <td style="text-align: left;">
+                            <i>Max Group Accuracy</i>, the classification accuracy of the best-performing protected group.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">mGA</th>
+                        <td style="text-align: left;">
+                            <i>Min Group Accuracy</i>, the classification accuracy of the worst-performing protected group.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">DA</th>
+                        <td style="text-align: left;">
+                            <i>Difference in Accuracy</i>, \(DA = MGA - mGA\)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Datasets</p>
         <p style="text-align: justify;">
