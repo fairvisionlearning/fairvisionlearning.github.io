@@ -5,6 +5,14 @@
     --bs-table-bg: white;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
 .table-responsive {
     border-top: 1px solid black;
 }

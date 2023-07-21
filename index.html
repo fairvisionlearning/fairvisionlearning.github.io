@@ -14,9 +14,9 @@
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="style.css">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
@@ -29,7 +29,7 @@
     <meta name="msapplication-config" content="images/icon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <!--script defer src="script.js"></script-->
+    <script defer src="script.js"></script>
 
     <script defer src="tables/celeba_13_attribs.js"></script>
     <script defer src="tables/celeba_eyebags.js"></script>
@@ -54,12 +54,6 @@
 
         <img src="images/banner.png" class="img-fluid pt-5 pb-3" alt="teaser">
 
-        <!--div id="head-carousel" class="carousel carousel-dark slide pt-5" data-bs-ride="carousel">
-            <div id="inner-carousel" class="carousel-inner">
-            </div>
-        </div-->
-
-        <!--h5 class="fw-bold pt-5">Welcome!</h5-->
         <p class="pt-5" style="text-align: left;">
             In a world increasingly shaped by artificial intelligence, it is essential to ensure that these technologies 
             are not only accurate and powerful but also equitable and unbiased. In particular, computer vision applications 
@@ -101,7 +95,7 @@
                         <th style="text-align: right; padding-right: 20px;">Baseline</th>
                         <td style="text-align: left;">
                             <p>
-                                For our classification experiments we follow the fairness literature [1] adopting as baseline ResNet50
+                                For our classification experiments we follow the fairness literature <a href="#r1">[1]</a> adopting as baseline ResNet50
                                 with standard cross-entropy minimization objective, pretrained on ImageNet.
                             </p>
                             <p>
@@ -111,6 +105,39 @@
                             </p>
                         </td>
                     </tr>
+
+                    <tr><th style="text-align: left;" colspan="2">Regularization-Based Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="2">
+                        Include all the techniques designed to prevent overfitting with a consequent boost in the model 
+                        generalization ability.
+                    </td></tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">LSR</th>
+                        <td style="text-align: left;">
+                            Encourages the model to avoid overconfidence by smoothing data annotation. [4]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">SWAD</th>
+                        <td style="text-align: left;">
+                            Searches for flat minima. [5]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">RSC</th>
+                        <td style="text-align: left;">
+                            Is based on a refined drop-out. [6]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">L2D</th>
+                        <td style="text-align: left;">
+                            Includes a module trained to synthesize new images with a style distribution 
+                            complementary to that of the training data. [7]
+                        </td>
+                    </tr>
+
+                    <tr><th style="text-align: left;" colspan="2">Regularization-Based Methods</th></tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">LSR</th>
                         <td style="text-align: left;">
@@ -192,6 +219,7 @@
         </p>
         
         <div class="container pt-5">
+            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">1. Classification Results</p>
             <p class="fw-bold" style="text-align: left;">CelebA - 13 Attributes <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
 
@@ -207,72 +235,69 @@
             <p class="fw-bold pt-5" style="text-align: left;">Fitzpatrick17k <i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="fitzpatrick"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">UTKFace - Landmark Detection @ 8% NME</p>
+            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">2. Landmark Detection Results</p>
+            <p class="fw-bold" style="text-align: left;">UTKFace - Landmark Detection @ 8% NME</p>
             <p class="fw-bold pt-1" style="text-align: left;"><i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-skintone"></div>
             <p class="fw-bold pt-1" style="text-align: left;"><i>(age)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-age"></div>
-
-            <p class="fw-bold pt-5" style="text-align: left;">CelebA - EyeBags [Model Transferability]</p>
+            
+            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">3. Model Transferability</p>
+            <p class="fw-bold" style="text-align: left;">CelebA - EyeBags</p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags-transfer"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">UTKFace - Landmark Detection [Model Transferability]</p>
+            <p class="fw-bold pt-5" style="text-align: left;">UTKFace - Landmark Detection @ 8% NME</p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-transfer"></div>
         </div>
         
         <hr style="border-bottom: 1px black; width: 100%;"/>
-        
-        <!--h3 class="pt-5"><b>Fairness meets Cross-Domain Learning: a new perspective on Models and Metrics</b></h3>
 
-        <p class="pt-3"><b>Leonardo Iurada<sup>1</sup>, Silvia Bucci<sup>1</sup>, Timothy M. Hospedales<sup>3</sup>,
-                Tatiana Tommasi<sup>1,2</sup></b></p>
+        <p class="fw-bold pt-2" style="text-align: left; font-size: 1rem;">References</p>
+        <div class="table-responsive p-abs" style="border: 0;">
+            <table class="table table-sm table-borderless" style="font-size: 0.85rem;">
+                <tbody>
+                    <tr>
+                        <td style="text-align: right; padding-right: 20px;" id="r1">[1]</td>
+                        <td style="text-align: left;">
+                            Vikram V Ramaswamy, Sunnie SY Kim, and Olga Russakovsky. 
+                            Fair attribute classification through latent space
+                            de-biasing. In <i>CVPR</i>, 2021.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr style="border-bottom: 1px black; width: 100%;"/>
+        
+        <!--h3 class="pt-5"><b>xxxx</b></h3>
+
+        <p class="pt-3"><b>xxxx<sup>1</sup>, xxxx<sup>1</sup>, xxxx<sup>3</sup>,
+                xxxx<sup>1,2</sup></b></p>
         <div class="container d-flex justify-content-evenly">
-            <p><sup>1</sup>Politecnico di Torino</p>
-            <p><sup>2</sup>Italian Institute of Technology</p>
-            <p><sup>3</sup>University of Edinburgh</p>
+            <p><sup>1</sup>xxxx</p>
+            <p><sup>2</sup>xxxx</p>
+            <p><sup>3</sup>xxxx</p>
         </div>
 
         <div class="container d-flex justify-content-center pt-3 pb-3">
-            <a href="https://arxiv.org/pdf/2303.14411.pdf" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
+            <a href="xxxx" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
                         class="fa fa-newspaper-o"></i> Paper</button></a>
-            <a href="https://arxiv.org/abs/2303.14411.pdf" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
+            <a href="xxxx" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
                         class="ai ai-arxiv"></i> ArXiv</button></a>
-            <a href="https://github.com/iurada/fairness_crossdomain" target="_blank"><button type="button"
+            <a href="xxxx" target="_blank"><button type="button"
                     class="btn btn-dark btn-small m-2"><i class="fa fa-github"></i> Code</button></a>
         </div>
 
-        <img src="images/teaser.png" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser">
+        <img src="xxxx" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser">
 
 
-        <p class="text-start" style="text-align: justify;"><b>Overview:</b> Starting from a model that exhibits some
-            degree of unfairness
-            as evidenced by the Difference in Accuracy between protected groups (left). We exploit Cross-Domain
-            (CD) learning to reduce the visual domain shift among groups and improve the generalization
-            ability of the model, obtaining an unfairness mitigation effect (right).</p>
+        <p class="text-start" style="text-align: justify;"><b>Overview:</b> xxxx</p>
 
-            <h5 class="fw-bold pt-5">Abstract</h5>
-            <p class="fst-italic p-abs" style="text-align: justify;">
-                Deep learning-based recognition systems are deployed at scale for several real-world applications
-                that inevitably involve our social life. Although being of great support when making complex decisions,
-                they might capture spurious data correlations and leverage sensitive attributes (e.g. age, gender,
-                ethnicity). How to factor out this information while keeping a high prediction performance is a task
-                with still several open questions, many of which are shared with those of the domain adaptation and
-                generalization literature which focuses on avoiding visual domain biases. In this work, we propose an
-                in-depth study of the relationship between cross-domain learning (CD) and model fairness by introducing a
-                benchmark on face and medical images spanning several demographic groups as well as classification and
-                localization tasks. After having highlighted the limits of the current evaluation metrics, we introduce
-                a new Harmonic Fairness (HF) score to assess jointly how fair and accurate every model is with respect
-                to a reference baseline. Our study covers 14 CD approaches alongside three state-of-the-art fairness
-                algorithms and shows how the former can outperform the latter. Overall, our work paves the way for a
-                more systematic analysis of fairness problems in computer vision.
-            </p>
-
-        <div class="container pt-5">
-            <h5 class="fw-bold pb-3">Benchmark Results</h5>
-
-            <p class="fw-bold">CelebA - 13 Attributes Experiment</p>
-            <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
-        </div-->
+        <h5 class="fw-bold pt-5">Abstract</h5>
+        <p class="fst-italic p-abs" style="text-align: justify;">
+                xxxx
+        </p-->
 
     </div>
 </body>
