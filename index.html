@@ -15,9 +15,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico">
 
-    <script defer src="script.js"></script>
+    <!--script defer src="script.js"></script-->
 
     <script defer src="tables/celeba_13_attribs.js"></script>
+    <script defer src="tables/celeba_eyebags.js"></script>
+    <script defer src="tables/celeba_chubby.js"></script>
+    <script defer src="tables/covid_cxr.js"></script>
+    <script defer src="tables/fitzpatrick.js"></script>
+    <script defer src="tables/utkface_skintone.js"></script>
+    <script defer src="tables/utkface_age.js"></script>
 </head>
 
 <body>
@@ -33,58 +39,102 @@
             </div>
         </div-->
 
-        <h5 class="fw-bold pt-5">Welcome!</h5>
-        <p style="text-align: justify;">
-            In a world increasingly shaped by artificial intelligence, it is essential to ensure that these technologies are 
-            not only accurate and powerful but also equitable and unbiased. We are committed to driving a transformative shift 
-            in the realm of visual learning, where cutting-edge research and innovation converge to create a future where 
-            fairness is at the heart of every pixel. Join us on this journey as we advance the standards of visual AI and strive 
-            for a more just and inclusive world through our pioneering endeavors. Together, let's revolutionize the future of technology 
-            - one that embraces diversity, empathy, and above all, fairness.
+        <!--h5 class="fw-bold pt-5">Welcome!</h5-->
+        <p class="pt-5" style="text-align: justify;">
+            In a world increasingly shaped by artificial intelligence, it is essential to ensure that these technologies 
+            are not only accurate and powerful but also equitable and unbiased. In particular, computer vision applications 
+            are supportive tools in our daily lives, helping us to store and organize photos, navigate the streets of a new city, 
+            choose what to wear or what couch will fit best in our living room. However, they also play a relevant role in 
+            more critical decisions including healthcare, policing, employment and more. One aspect that is currently 
+            keeping low the level of trust associated with vision systems is their potential unfairness, meaning that the 
+            models may exploit spurious sensitive attribute correlations (e.g. age, gender, race) when solving seemingly 
+            unrelated tasks on data coming from different demographic groups.
         </p>
         <p class="pt-3" style="text-align: justify;">
-            We firmly believe that the world of visual learning demands a comprehensive and in-depth analysis of fairness. 
-            As we witness the rapid evolution of AI-driven technologies, we recognize the profound impact they have on our 
-            daily lives, from facial recognition systems to autonomous vehicles and beyond. To ensure these powerful visual 
-            tools serve society responsibly, it is imperative to address the critical issue of bias and inequality head-on.
-        </p>
-
-        <h5 class="fw-bold pt-5">Visual Learning</h5>
-        <p class="pt-3" style="text-align: justify;">
-            In the quest to address the multitude of challenges within visual learning, it is crucial to note that specific 
-            areas have not received the attention they deserve when it comes to algorithmic fairness. For instance, 
-            the absence of comprehensive studies on localization/regression brings forth 
-            untapped potential for enhancing fairness within these critical components of visual AI. Our project aims 
-            to shed light on these neglected areas and pioneer research that addresses fairness concerns across all aspects 
-            of visual learning.
+            With this project page we would like to contribute to the numerous efforts that the research community is 
+            currently pursuing towards fair computer vision models. Specifically we present our work dedicated to the 
+            definition of a fairness benchmark which spans both face and medical images for classification and landmark 
+            detection tasks.
         </p>
 
-        <h5 class="fw-bold pt-5">Fairness Metrics</h5>
+        <h5 class="fw-bold pt-5">Tasks</h5>
         <p class="pt-3" style="text-align: justify;">
-            As we delve into this endeavor, it becomes evident that no aspect should be taken for granted, and metrics, 
-            in particular, warrant meticulous scrutiny. We understand that the choice of metrics can profoundly impact 
-            the evaluation and eventual outcomes of visual learning algorithms. By critically examining and refining these 
-            metrics, we can ensure a more accurate and just assessment of AI models' performance.
+            We remark that current unfairness mitigation strategies in computer vision are restricted to classification 
+            problems. To overcome this limitation, we include in our benchmark the task of landmark detection on face 
+            images of different demographic groups, as the bias related to sensitive attributes can affect the precision 
+            with which critical keypoints are located.
         </p>
 
-        <h5 class="fw-bold pt-5">Fairness meets Cross-Domain Learning</h5>
+        <h5 class="fw-bold pt-5">Methods</h5>
         <p class="pt-3" style="text-align: justify;">
-            Furthermore, we recognize the crucial significance 
-            of exploring various aspects concerning data, algorithms, metrics, and tasks. Embracing this complexity, we aim to 
-            forge meaningful connections between Cross-Domain Learning and Fairness, recognizing their intertwined nature.
+            Resolving the fairness issue while maintaining accurate predictions for the target task is a challenge shared 
+            with the domain adaptation and generalization literature which focuses on avoiding visual domain biases. 
+            Thus, we start our study by investigating the connection between cross-domain learning (CD) and model 
+            fairness by evaluating 14 CD learning approaches alongside three state-of-the-art (SOTA) fairness algorithms. 
+            We conclude that the former can outperform the latter.
+        </p>
+        <p class="pt-3 text-start" style="text-align: justify;">
+            Here is the list of the evaluated methods...
         </p>
         
 
+        <h5 class="fw-bold pt-5">Metrics</h5>
         <p class="pt-3" style="text-align: justify;">
-            In our recent work titled <i>"Fairness meets Cross-Domain Learning: A New Perspective on Models and Metrics"</i>, 
-            we have taken a significant stride towards studying and addressing the multifaceted challenges in fair visual learning. 
-            By delving into the relationship between Fairness and Cross-Domain Learning, we resorted to standard and state-of-the-art
-            approaches to mitigate unfairness. This holds immense potential in reshaping the landscape of fair learning, as the Cross-Domain
-            literature is vast and has been thoroughly explored, contrary to the one of fair visual learning. 
+            Another aspect on which there is still a lot of confusion and open debate is about how systems should be 
+            evaluated. There are multiple competing notions of fairness and ways to quantify it. Previous studies 
+            measure group fairness by accuracy difference between advantaged and disadvantaged subgroups. However, 
+            this goal has been criticized in philosophy and ethics literature. Purely minimizing the gap between 
+            subgroup performance, may lead to choosing a model with worse accuracy for all subgroups, which is 
+            Pareto inefficient and violates the ethical principles of beneficence and non-maleficence. Thus, we 
+            analyze several existing group fairness criteria and highlight the lack of a metric that properly 
+            aggregates overall performance and fairness level to assess the quality of a model.
         </p>
+        <p class="pt-3 text-start" style="text-align: justify;">
+            List of metrics...
+        </p>
+
+        <h5 class="fw-bold pt-5">Datasets</h5>
+        <p class="pt-3" style="text-align: justify;">
+            ...
+        </p>
+
+        <h5 class="fw-bold pt-5">Results</h5>
+        <p class="pt-3" style="text-align: justify;">
+            ...
+        </p>
+        
+        <div class="container pt-5">
+            <p class="fw-bold">CelebA - 13 Attributes <i>(gender)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
+
+            <p class="fw-bold pt-5">CelebA - EyeBags <i>(gender)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags"></div>
+
+            <p class="fw-bold pt-5">CelebA - Chubby <i>(gender)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="celeba-chubby"></div>
+
+            <p class="fw-bold pt-5">COVID-19 Chest X-Ray <i>(gender)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="covid-cxr"></div>
+
+            <p class="fw-bold pt-5">Fitzpatrick17k <i>(skin tone)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="fitzpatrick"></div>
+
+            <p class="fw-bold pt-5">UTKFace - Landmark Detection @ 8% NME</p>
+            <p class="fw-bold pt-1"><i>(skin tone)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="utkface-skintone"></div>
+            <p class="fw-bold pt-1"><i>(age)</i></p>
+            <div class="table-responsive d-flex justify-content-center" id="utkface-age"></div>
+
+            <p class="fw-bold pt-5">CelebA - EyeBags [Model Transferability]</p>
+            <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags-transfer"></div>
+
+            <p class="fw-bold pt-5">UTKFace - Landmark Detection [Model Transferability]</p>
+            <div class="table-responsive d-flex justify-content-center" id="utkface-transfer"></div>
+        </div>
+        
         <hr style="border-bottom: 1px black; width: 100%;"/>
         
-        <h3 class="pt-5"><b>Fairness meets Cross-Domain Learning: a new perspective on Models and Metrics</b></h3>
+        <!--h3 class="pt-5"><b>Fairness meets Cross-Domain Learning: a new perspective on Models and Metrics</b></h3>
 
         <p class="pt-3"><b>Leonardo Iurada<sup>1</sup>, Silvia Bucci<sup>1</sup>, Timothy M. Hospedales<sup>3</sup>,
                 Tatiana Tommasi<sup>1,2</sup></b></p>
@@ -95,14 +145,14 @@
         </div>
 
         <div class="container d-flex justify-content-center pt-3 pb-3">
-            <a href="https://arxiv.org/pdf/2303.14411.pdf"><button type="button" class="btn btn-dark btn-small m-2"><i
+            <a href="https://arxiv.org/pdf/2303.14411.pdf" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
                         class="fa fa-newspaper-o"></i> Paper</button></a>
-            <a href="https://arxiv.org/abs/2303.14411.pdf"><button type="button" class="btn btn-dark btn-small m-2"><i
+            <a href="https://arxiv.org/abs/2303.14411.pdf" target="_blank"><button type="button" class="btn btn-dark btn-small m-2"><i
                         class="ai ai-arxiv"></i> ArXiv</button></a>
-            <a href="https://github.com/iurada/fairness_crossdomain"><button type="button"
+            <a href="https://github.com/iurada/fairness_crossdomain" target="_blank"><button type="button"
                     class="btn btn-dark btn-small m-2"><i class="fa fa-github"></i> Code</button></a>
         </div>
-        
+
         <img src="images/teaser.png" class="img-fluid pt-5 pb-3 img-teaser" alt="teaser">
 
 
@@ -134,7 +184,7 @@
 
             <p class="fw-bold">CelebA - 13 Attributes Experiment</p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
-        </div>
+        </div-->
 
     </div>
 </body>
