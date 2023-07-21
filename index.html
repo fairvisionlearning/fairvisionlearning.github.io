@@ -40,6 +40,8 @@
     <script defer src="tables/utkface_age.js"></script>
     <script defer src="tables/celeba_eyebags_transfer.js"></script>
     <script defer src="tables/utkface_transfer.js"></script>
+
+    <script defer src="references.js"></script>
 </head>
 
 <body>
@@ -97,11 +99,11 @@
                         <th style="text-align: right; padding-right: 20px;">Baseline</th>
                         <td style="text-align: left;">
                             <p>
-                                For our classification experiments we follow the fairness literature [<a onclick="scrl(r1)" class="hp">1</a>] adopting as baseline ResNet50
+                                For our classification experiments we follow the fairness literature [<a id="a1" onclick="scrl('r1')" class="hp">1</a>] adopting as baseline ResNet50
                                 with standard cross-entropy minimization objective, pretrained on ImageNet.
                             </p>
                             <p>
-                                For landmark detection we follow [<a onclick="scrl(r2)" class="hp">2</a>, <a onclick="scrl(r3)" class="hp">3</a>] and consider ResNet18 
+                                For landmark detection we follow [<a id="a2" onclick="scrl('r2')" class="hp">2</a>, <a id="a3" onclick="scrl('r3')" class="hp">3</a>] and consider ResNet18 
                                 pre-trained on ImageNet with a dedicated 
                                 head composed of deconvolutional layers. It is optimized with an L2 loss to reduce the discrepancy between 
                                 the predicted probability distribution of the location of each landmark and the ground truth
@@ -120,26 +122,26 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">LSR</th>
                         <td style="text-align: left;">
-                            Encourages the model to avoid overconfidence by smoothing data annotation. [<a onclick="scrl(r4)" class="hp">4</a>]
+                            Encourages the model to avoid overconfidence by smoothing data annotation. [<a id="a4" onclick="scrl('r4')" class="hp">4</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">SWAD</th>
                         <td style="text-align: left;">
-                            Searches for flat minima. [<a onclick="scrl(r5)" class="hp">5</a>]
+                            Searches for flat minima. [<a id="a5" onclick="scrl('r5')" class="hp">5</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">RSC</th>
                         <td style="text-align: left;">
-                            Is based on a refined drop-out. [<a onclick="scrl(r6)" class="hp">6</a>]
+                            Is based on a refined drop-out. [<a id="a6" onclick="scrl('r6')" class="hp">6</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">L2D</th>
                         <td style="text-align: left;">
                             Includes a module trained to synthesize new images with a style distribution 
-                            complementary to that of the training data. [<a onclick="scrl(r7)" class="hp">7</a>]
+                            complementary to that of the training data. [<a id="a7" onclick="scrl('r7')" class="hp">7</a>]
                         </td>
                     </tr>
                     
@@ -151,21 +153,21 @@
                         <th style="text-align: right; padding-right: 20px;">DANN</th>
                         <td style="text-align: left;">
                             The gradient computed by a domain discriminator is inverted while learning the 
-                            data representation. [<a onclick="scrl(r8)" class="hp">8</a>]
+                            data representation. [<a id="a8" onclick="scrl('r8')" class="hp">8</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">CDANN</th>
                         <td style="text-align: left;">
                             Improves over DANN by matching the conditional data distributions
-                            across domains rather than the marginal distributions. [<a onclick="scrl(r9)" class="hp">9</a>]
+                            across domains rather than the marginal distributions. [<a id="a9" onclick="scrl('r9')" class="hp">9</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">SagNets</th>
                         <td style="text-align: left;">
                             Introduces dedicated data randomizations to disentangle style from 
-                            class encodings. [<a onclick="scrl(r10)" class="hp">10</a>]
+                            class encodings. [<a id="a10" onclick="scrl('r10')" class="hp">10</a>]
                         </td>
                     </tr>
 
@@ -177,20 +179,20 @@
                         <th style="text-align: right; padding-right: 20px;">AFN</th>
                         <td style="text-align: left;">
                             Measures domain shift by comparing the feature norms of two domains and adapts 
-                            them to a common large value. [<a onclick="scrl(r11)" class="hp">11</a>]
+                            them to a common large value. [<a id="a11" onclick="scrl('r11')" class="hp">11</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">MMD</th>
                         <td style="text-align: left;">
-                            Minimizes the homonym metric to reduce the domain discrepancy. [<a onclick="scrl(r12)" class="hp">12</a>]
+                            Minimizes the homonym metric to reduce the domain discrepancy. [<a id="a12" onclick="scrl('r12')" class="hp">12</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">Fish</th>
                         <td style="text-align: left;">
                             Proposes to align the domain distributions by maximizing the inner 
-                            product between their gradients. [<a onclick="scrl(r13)" class="hp">13</a>]
+                            product between their gradients. [<a id="a13" onclick="scrl('r13')" class="hp">13</a>]
                         </td>
                     </tr>
 
@@ -202,7 +204,7 @@
                         <th style="text-align: right; padding-right: 20px;">RelRot</th>
                         <td style="text-align: left;">
                             Predicts the relative orientation between a reference image (anchor) and the 
-                            rotated counterpart as auxiliary task. [<a onclick="scrl(r14)" class="hp">14</a>]
+                            rotated counterpart as auxiliary task. [<a id="a14" onclick="scrl('r14')" class="hp">14</a>]
                         </td>
                     </tr>
                     <tr>
@@ -217,7 +219,7 @@
                         <th style="text-align: right; padding-right: 20px;">SelfReg</th>
                         <td style="text-align: left;">
                             Exploits contrastive losses to regularize the model and guide it to learn 
-                            domain-invariant representations. [<a onclick="scrl(r15)" class="hp">15</a>]
+                            domain-invariant representations. [<a id="a15" onclick="scrl('r15')" class="hp">15</a>]
                         </td>
                     </tr>
 
@@ -229,7 +231,7 @@
                         <th style="text-align: right; padding-right: 20px;">GroupDRO</th>
                         <td style="text-align: left;">
                             Minimizes the worst-case training loss over a set of pre-defined 
-                            groups. [<a onclick="scrl(r16)" class="hp">16</a>]
+                            groups. [<a id="a16" onclick="scrl('r16')" class="hp">16</a>]
                         </td>
                     </tr>
                     <tr>
@@ -237,7 +239,7 @@
                         <td style="text-align: left;">
                             Is a generative approach that reduces unfairness by synthesizing 
                             new samples of the most disadvantaged 
-                            group. [<a onclick="scrl(r17)" class="hp">17</a>]
+                            group. [<a id="a17" onclick="scrl('r17')" class="hp">17</a>]
                         </td>
                     </tr>
                     <tr>
@@ -245,7 +247,7 @@
                         <td style="text-align: left;">
                             Re-designs supervised contrastive learning to ensure fairness by paying 
                             attention to the choice of the negative samples and to the distribution 
-                            of the anchors between data groups. [<a onclick="scrl(r18)" class="hp">18</a>]
+                            of the anchors between data groups. [<a id="a18" onclick="scrl('r18')" class="hp">18</a>]
                         </td>
                     </tr>
 
@@ -256,7 +258,7 @@
                         <th style="text-align: right; padding-right: 20px;">RegDA</th>
                         <td style="text-align: left;">
                             It is developed to target human pose estimation and introduces an adversarial regressor 
-                            based on the Kullback-Leibler divergence between domains to narrow their gap. [<a onclick="scrl(r19)" class="hp">19</a>]
+                            based on the Kullback-Leibler divergence between domains to narrow their gap. [<a id="a19" onclick="scrl('r19')" class="hp">19</a>]
                         </td>
                     </tr>
 
@@ -400,20 +402,20 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">CelebFaces Attribute (CelebA)</th>
                         <td style="text-align: left;">
-                            [<a onclick="scrl(r20)" class="hp">20</a>] comprises 202,599
+                            [<a id="a20" onclick="scrl('r20')" class="hp">20</a>] comprises 202,599
                             RGB face images of celebrities, each with 40 binary attribute annotations. 
                             We focus on the same subset of 13
                             reliable target attributes considered in 
-                            [<a onclick="scrl(r21)" class="hp">21</a>, <a onclick="scrl(r22)" class="hp">22</a>],
+                            [<a onclick="scrl('r1')" class="hp">1</a>, <a onclick="scrl('r17')" class="hp">17</a>],
                             as they can be labeled objectively, without being ambiguous for a human. 
                             We select <i>male</i> and <i>young</i> as protected attributes, and adopt the same
-                            setting of [<a onclick="scrl(r23)" class="hp">23</a>], based on the official train/val/test splits.
+                            setting of [<a onclick="scrl('r17')" class="hp">17</a>], based on the official train/val/test splits.
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">COVID-19 Chest X-Ray</th>
                         <td style="text-align: left;">
-                            [<a onclick="scrl(r24)" class="hp">24</a>] is composed of 719 images
+                            [<a id="a21" onclick="scrl('r21')" class="hp">21</a>] is composed of 719 images
                             of chest x-ray coming from different online sources showing scans of patients affected by pulmonary diseases. Each
                             image has a structured label describing many attributes of
                             the patient. We focus on the <i>finding</i> attribute as target, considering the COVID-19 pathology, while <i>gender</i> is selected
@@ -423,11 +425,11 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">Fitzpatrick17k</th>
                         <td style="text-align: left;">
-                            [<a onclick="scrl(r25)" class="hp">25</a>] is a collection of 16,577 clinical 
+                            [<a id="a22" onclick="scrl('r22')" class="hp">22</a>] is a collection of 16,577 clinical 
                             images depicting 114 skin conditions from two dermatology
                             atlases. The images are annotated with the six Fitzpatrick
                             skin type labels, that describe the skin phenotype’s sun reactivity. 
-                            The dataset is widely used in algorithmic fairness research [<a onclick="scrl(r26)" class="hp">26</a>]. 
+                            The dataset is widely used in algorithmic fairness research [<a id="a23" onclick="scrl('r23')" class="hp">23</a>]. 
                             We classify whether the dermatological
                             condition in each picture is either <i>benign/non-neoplastic</i> or
                             <i>malignant</i> and we use <i>skin tone</i> as the protected attribute,
@@ -440,7 +442,7 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">UTKFace</th>
                         <td style="text-align: left;">
-                            [<a onclick="scrl(r27)" class="hp">27</a>] consists of over 20k RGB face images 
+                            [<a id="a24" onclick="scrl('r24')" class="hp">24</a>] consists of over 20k RGB face images 
                             characterized by great variability in terms of pose, facial expression, illumination, <i>etc.</i>, 
                             and present age, gender, and race
                             annotations. We focus on landmark localization (68 points)
@@ -462,7 +464,7 @@
             all the methods evaluated in the benchmark to guarantee maximal transparency and reproducibility. 
             It can also easily include other methods for future benchmark extensions.
             Unless stated otherwise, for all the experiments we adopted the same validation protocol 
-            described in [<a onclick="scrl(r28)" class="hp">28</a>].
+            described in [<a onclick="scrl('r17')" class="hp">17</a>].
         </p>
         
         <p class="fw-bold fs-6 pt-5" style="text-align: right; border-bottom: 1px solid black;">01. Classification Results</p>
@@ -504,16 +506,7 @@
         <p class="fw-bold pt-2" style="text-align: left; font-size: 1rem;">References</p>
         <div class="table-responsive p-abs" style="border: 0;">
             <table class="table table-sm table-borderless" style="font-size: 0.85rem;">
-                <tbody>
-                    <tr>
-                        <td style="text-align: right; padding-right: 20px;" id="r1">[1]</td>
-                        <td style="text-align: left;">
-                            Vikram V Ramaswamy, Sunnie SY Kim, and Olga Russakovsky. 
-                            Fair attribute classification through latent space
-                            de-biasing. In <i>CVPR</i>, 2021.
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="ref-body"></tbody>
             </table>
         </div>
 
