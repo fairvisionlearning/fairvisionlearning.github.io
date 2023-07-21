@@ -38,6 +38,7 @@
     <script defer src="tables/fitzpatrick.js"></script>
     <script defer src="tables/utkface_skintone.js"></script>
     <script defer src="tables/utkface_age.js"></script>
+    <script defer src="tables/celeba_eyebags_transfer.js"></script>
 </head>
 
 <body>
@@ -95,74 +96,169 @@
                         <th style="text-align: right; padding-right: 20px;">Baseline</th>
                         <td style="text-align: left;">
                             <p>
-                                For our classification experiments we follow the fairness literature <a href="#r1">[1]</a> adopting as baseline ResNet50
+                                For our classification experiments we follow the fairness literature [<a onclick="scrl(r1)" class="hp">1</a>] adopting as baseline ResNet50
                                 with standard cross-entropy minimization objective, pretrained on ImageNet.
                             </p>
                             <p>
-                                For landmark detection we follow [2, 3] and consider ResNet18 pre-trained on ImageNet with a dedicated 
+                                For landmark detection we follow [<a onclick="scrl(r2)" class="hp">2</a>, <a onclick="scrl(r3)" class="hp">3</a>] and consider ResNet18 
+                                pre-trained on ImageNet with a dedicated 
                                 head composed of deconvolutional layers. It is optimized with an L2 loss to reduce the discrepancy between 
                                 the predicted probability distribution of the location of each landmark and the ground truth
                             </p>
                         </td>
                     </tr>
 
-                    <tr><th style="text-align: left;" colspan="2">Regularization-Based Methods</th></tr>
-                    <tr><td style="text-align: left;" colspan="2">
+                    <tr>
+                        <th style="text-align: right; border-bottom: 1px solid black;" colspan="2">Classification</th>
+                    </tr>
+                    <tr><th style="text-align: left;" colspan="1">Regularization-Based Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="1">
                         Include all the techniques designed to prevent overfitting with a consequent boost in the model 
                         generalization ability.
                     </td></tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">LSR</th>
                         <td style="text-align: left;">
-                            Encourages the model to avoid overconfidence by smoothing data annotation. [4]
+                            Encourages the model to avoid overconfidence by smoothing data annotation. [<a onclick="scrl(r4)" class="hp">4</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">SWAD</th>
                         <td style="text-align: left;">
-                            Searches for flat minima. [5]
+                            Searches for flat minima. [<a onclick="scrl(r5)" class="hp">5</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">RSC</th>
                         <td style="text-align: left;">
-                            Is based on a refined drop-out. [6]
+                            Is based on a refined drop-out. [<a onclick="scrl(r6)" class="hp">6</a>]
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">L2D</th>
                         <td style="text-align: left;">
                             Includes a module trained to synthesize new images with a style distribution 
-                            complementary to that of the training data. [7]
+                            complementary to that of the training data. [<a onclick="scrl(r7)" class="hp">7</a>]
+                        </td>
+                    </tr>
+                    
+                    <tr><th style="text-align: left;" colspan="1">Adversarial Training Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="1">
+                        Encode domain-invariant representations by preventing the network to recognize the domains.
+                    </td></tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">DANN</th>
+                        <td style="text-align: left;">
+                            The gradient computed by a domain discriminator is inverted while learning the 
+                            data representation. [<a onclick="scrl(r8)" class="hp">8</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">CDANN</th>
+                        <td style="text-align: left;">
+                            Improves over DANN by matching the conditional data distributions
+                            across domains rather than the marginal distributions. [<a onclick="scrl(r9)" class="hp">9</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">SagNets</th>
+                        <td style="text-align: left;">
+                            Introduces dedicated data randomizations to disentangle style from 
+                            class encodings. [<a onclick="scrl(r10)" class="hp">10</a>]
                         </td>
                     </tr>
 
-                    <tr><th style="text-align: left;" colspan="2">Regularization-Based Methods</th></tr>
+                    <tr><th style="text-align: left;" colspan="1">Feature Alignment Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="1">
+                        Involve training objectives that minimize domain distance measures.
+                    </td></tr>
                     <tr>
-                        <th style="text-align: right; padding-right: 20px;">LSR</th>
+                        <th style="text-align: right; padding-right: 20px;">AFN</th>
                         <td style="text-align: left;">
-                            Encourages the model to avoid overconfidence by smoothing data annotation. [4]
+                            Measures domain shift by comparing the feature norms of two domains and adapts 
+                            them to a common large value. [<a onclick="scrl(r11)" class="hp">11</a>]
                         </td>
                     </tr>
                     <tr>
-                        <th style="text-align: right; padding-right: 20px;">SWAD</th>
+                        <th style="text-align: right; padding-right: 20px;">MMD</th>
                         <td style="text-align: left;">
-                            Searches for flat minima. [5]
+                            Minimizes the homonym metric to reduce the domain discrepancy. [<a onclick="scrl(r12)" class="hp">12</a>]
                         </td>
                     </tr>
                     <tr>
-                        <th style="text-align: right; padding-right: 20px;">RSC</th>
+                        <th style="text-align: right; padding-right: 20px;">Fish</th>
                         <td style="text-align: left;">
-                            Is based on a refined drop-out. [6]
+                            Proposes to align the domain distributions by maximizing the inner 
+                            product between their gradients. [<a onclick="scrl(r13)" class="hp">13</a>]
+                        </td>
+                    </tr>
+
+                    <tr><th style="text-align: left;" colspan="1">Self-Supervised Learning-based Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="1">
+                        Exploit auxiliary self-supervised tasks to let the network focus on semantic-relevant features.
+                    </td></tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">RelRot</th>
+                        <td style="text-align: left;">
+                            Predicts the relative orientation between a reference image (anchor) and the 
+                            rotated counterpart as auxiliary task. [<a onclick="scrl(r14)" class="hp">14</a>]
                         </td>
                     </tr>
                     <tr>
-                        <th style="text-align: right; padding-right: 20px;">L2D</th>
+                        <th style="text-align: right; padding-right: 20px;">RelRotAlign</th>
                         <td style="text-align: left;">
-                            Includes a module trained to synthesize new images with a style distribution 
-                            complementary to that of the training data. [7]
+                            A variant of <b>RelRot</b> to encourage the domain alignment using as anchor a 
+                            sample with the same target attribute but from a different 
+                            protected group.
                         </td>
                     </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">SelfReg</th>
+                        <td style="text-align: left;">
+                            Exploits contrastive losses to regularize the model and guide it to learn 
+                            domain-invariant representations. [<a onclick="scrl(r15)" class="hp">15</a>]
+                        </td>
+                    </tr>
+
+                    <tr><th style="text-align: left;" colspan="1">State-of-the-art Fairness Methods</th></tr>
+                    <tr><td style="text-align: left;" colspan="1">
+                        These approaches are tailored specifically to mitigate unfairness.
+                    </td></tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">GroupDRO</th>
+                        <td style="text-align: left;">
+                            Minimizes the worst-case training loss over a set of pre-defined 
+                            groups. [<a onclick="scrl(r16)" class="hp">16</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">g-SMOTE</th>
+                        <td style="text-align: left;">
+                            Is a generative approach that reduces unfairness by synthesizing 
+                            new samples of the most disadvantaged 
+                            group. [<a onclick="scrl(r17)" class="hp">17</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">FSCL</th>
+                        <td style="text-align: left;">
+                            Re-designs supervised contrastive learning to ensure fairness by paying 
+                            attention to the choice of the negative samples and to the distribution 
+                            of the anchors between data groups. [<a onclick="scrl(r18)" class="hp">18</a>]
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align: right; border-bottom: 1px solid black;" colspan="2">Landmark Detection</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">RegDA</th>
+                        <td style="text-align: left;">
+                            It is developed to target human pose estimation and introduces an adversarial regressor 
+                            based on the Kullback-Leibler divergence between domains to narrow their gap. [<a onclick="scrl(r19)" class="hp">19</a>]
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
@@ -179,9 +275,13 @@
             analyze several existing group fairness criteria and highlight the lack of a metric that properly 
             aggregates overall performance and fairness level to assess the quality of a model.
         </p>
+        <p class="pt-3 text-start d-flex" style="text-align: left;">The metrics used in our evaluation are:</p>
         <div class="table-responsive p-abs" style="border: 0;">
             <table class="table table-sm table-borderless">
                 <tbody>
+                    <tr>
+                        <th style="text-align: right; border-bottom: 1px solid black;" colspan="2">Classification</th>
+                    </tr>
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">Acc.</th>
                         <td style="text-align: left;">Classification accuracy.</td>
@@ -201,24 +301,170 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">DA</th>
                         <td style="text-align: left;">
-                            <i>Difference in Accuracy</i>, \(DA = MGA - mGA\)
+                            <i>Difference in Accuracy</i>. Measures Fairness by computing the difference in accuracy 
+                            between protected groups.
+                            \[DA = MGA - mGA\] 
+                            The lower, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">DEO</th>
+                        <td style="text-align: left;">
+                            <i>Difference in Equal Opportunity</i>. Measures Fairness by 
+                            \[|P(\hat{y}=1|y=1,a=0)| - |P(\hat{y}=1|y=1,a=1)|\]
+                            where \(\hat{y}\) is the classifiers prediction, \(y\) is the target label and
+                            \(a\) is the sensitive attribute. The lower, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">DEOdds</th>
+                        <td style="text-align: left;">
+                            <i>Difference in Equalized Odds</i> Measures Fairness by 
+                            \[\sum_{t \in \{0,1\}}|P(\hat{y}=1|y=t,a=0)| - |P(\hat{y}=1|y=t,a=1)|\]
+                            The lower, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">ΔDTO</th>
+                        <td style="text-align: left;">
+                            <i>Difference in Distance To Optimum</i>. A perfectly fair and accurate classifier exhibits
+                            \([MGA^*, mGA^*] = [100, 100]\) (<i>Utopia</i>). Thus, we define as \(DTO\) 
+                            (<i>Distance To Optimum</i>) as the L2 distance between \([MGA,mGA]\) of a method and the
+                            <i>Utopia</i> point \([MGA^*, mGA^*]\). To estimate the relative performance of each method 
+                            with respect to the baseline, we report 
+                            \[\Delta DTO = DTO_{baseline} - DTO_{method}\]
+                            The higher, the better.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th style="text-align: right; border-bottom: 1px solid black;" colspan="2">Landmark Detection</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;" colspan="2">
+                            When dealing with landmark detection every data sample can be defined as 
+                            \((\boldsymbol{x}, a, \boldsymbol{Y})\), where
+                            \(\boldsymbol{Y} \in \mathbb{R}^{K \times 2}\) is a set of \(\boldsymbol{y}_{1,...,K}\) 
+                            landmark coordinates. The reference metric for this task is the Normalized Mean Error
+                            (<i>NME</i>) calculated as:
+                            \[NME(\boldsymbol{Y}, \hat{\boldsymbol{Y}}) = \frac{1}{N} \sum_{i=1}^K \frac{\| \boldsymbol{y}_i - \hat{\boldsymbol{y}}_i \|_2}{D} \]
+                            where \(D\) is a normalization factor, usually chosen as the interocular distance for face images. The lower
+                            the <i>NME</i>, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">SDR</th>
+                        <td style="text-align: left;">
+                            <i>Success Detection Rate</i> is the percentage of images whose <i>NMEs</i> is less than a given threshold.
+                            The higher, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">MGS</th>
+                        <td style="text-align: left;">
+                            <i>Max SDR</i>, the <i>SDR</i> of the best-performing protected group.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">mGS</th>
+                        <td style="text-align: left;">
+                            <i>Min SDR</i>, the <i>SDR</i> of the worst-performing protected group.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">DS</th>
+                        <td style="text-align: left;">
+                            <i>Difference in SDR</i> Measures Fairness by computing the difference in SDR 
+                            between protected groups.
+                            \[DS = MGS - mGS\] 
+                            The lower, the better.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">ΔDTO</th>
+                        <td style="text-align: left;">
+                            <i>Difference in Distance To Optimum</i>. The definition is analogous to the one given for the
+                            classification task, but using <i>MGS</i> and <i>mGS</i>.
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Datasets</p>
+        <div class="table-responsive p-abs" style="border: 0;">
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">CelebFaces Attribute (CelebA)</th>
+                        <td style="text-align: left;">
+                            [<a onclick="scrl(r20)" class="hp">20</a>] comprises 202,599
+                            RGB face images of celebrities, each with 40 binary attribute annotations. 
+                            We focus on the same subset of 13
+                            reliable target attributes considered in 
+                            [<a onclick="scrl(r21)" class="hp">21</a>, <a onclick="scrl(r22)" class="hp">22</a>],
+                            as they can be labeled objectively, without being ambiguous for a human. 
+                            We select <i>male</i> and <i>young</i> as protected attributes, and adopt the same
+                            setting of [<a onclick="scrl(r23)" class="hp">23</a>], based on the official train/val/test splits.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">COVID-19 Chest X-Ray</th>
+                        <td style="text-align: left;">
+                            [<a onclick="scrl(r24)" class="hp">24</a>] is composed of 719 images
+                            of chest x-ray coming from different online sources showing scans of patients affected by pulmonary diseases. Each
+                            image has a structured label describing many attributes of
+                            the patient. We focus on the <i>finding</i> attribute as target, considering the COVID-19 pathology, while <i>gender</i> is selected
+                            as sensitive attribute. We split the dataset into 80/20% training/test sets, using 20% of the training split for validation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">Fitzpatrick17k</th>
+                        <td style="text-align: left;">
+                            [<a onclick="scrl(r25)" class="hp">25</a>] is a collection of 16,577 clinical 
+                            images depicting 114 skin conditions from two dermatology
+                            atlases. The images are annotated with the six Fitzpatrick
+                            skin type labels, that describe the skin phenotype’s sun reactivity. 
+                            The dataset is widely used in algorithmic fairness research [<a onclick="scrl(r26)" class="hp">26</a>]. 
+                            We classify whether the dermatological
+                            condition in each picture is either <i>benign/non-neoplastic</i> or
+                            <i>malignant</i> and we use <i>skin tone</i> as the protected attribute,
+                            keeping only the examples belonging to <i>skin type I</i> (light)
+                            and <i>skin type VI</i> (dark) of the Fitzpatrick scale. We split
+                            the dataset into 80/20% training/test sets, using 20% of the
+                            training split for validation
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">UTKFace</th>
+                        <td style="text-align: left;">
+                            [<a onclick="scrl(r27)" class="hp">27</a>] consists of over 20k RGB face images 
+                            characterized by great variability in terms of pose, facial expression, illumination, <i>etc.</i>, 
+                            and present age, gender, and race
+                            annotations. We focus on landmark localization (68 points)
+                            considering the values <i>white</i> and <i>black</i> of the label <i>race</i> as
+                            protected groups for the experiments related to <i>skin tone</i>.
+                            Moreover, we define the <i>young</i> and <i>old</i> groups by collecting
+                            respectively samples with the value of label <i>age</i> in 0-10 and
+                            40-50 years old. Training/test division is in the proportion
+                            80/20% with 20% of the training split used for validation.
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Datasets</p>
-        <p style="text-align: justify;">
-            ...
-        </p>
-
         <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Results</p>
-        <p style="text-align: justify;">
-            ...
+        <p style="text-align: left;">
+            Here we present the main results of our experiments. Our PyTorch implementation covers
+            all the methods evaluated in the benchmark to guarantee maximal transparency and reproducibility. 
+            It can also easily include other methods for future benchmark extensions.
+            Unless stated otherwise, for all the experiments we adopted the same validation protocol 
+            described in [<a onclick="scrl(r28)" class="hp">28</a>].
         </p>
         
-        <div class="container pt-5">
+        <div class="container">
             <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">1. Classification Results</p>
             <p class="fw-bold" style="text-align: left;">CelebA - 13 Attributes <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
