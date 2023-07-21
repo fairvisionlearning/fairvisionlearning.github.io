@@ -28,9 +28,15 @@
 
 <body>
     <div class="container p-5 mb-5 text-center d-flex flex-column align-items-center">
-
-        <h1><b>Advancing Fairness in Visual Learning</b></h1>
-        <hr style="border-bottom: 1px black; width: 100%;"/>
+        
+        <div class="container fixed-top d-flex p-3" style="background-color: white;">
+            <div class="d-flex align-items-center" style="width: 85%;">
+                <img src="images/icon/logo.svg" width="50px" alt="...">
+                <h1 style="padding-left: 5px; position: relative; top: 5px;"><b>Advancing Fairness in Visual Learning</b></h1>
+            </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <hr class="mt-5" style="border-bottom: 1px black; width: 100%;"/>
 
         <img src="images/banner.png" class="img-fluid pt-5 pb-3" alt="teaser">
 
@@ -40,7 +46,7 @@
         </div-->
 
         <!--h5 class="fw-bold pt-5">Welcome!</h5-->
-        <p class="pt-5" style="text-align: justify;">
+        <p class="pt-5" style="text-align: left;">
             In a world increasingly shaped by artificial intelligence, it is essential to ensure that these technologies 
             are not only accurate and powerful but also equitable and unbiased. In particular, computer vision applications 
             are supportive tools in our daily lives, helping us to store and organize photos, navigate the streets of a new city, 
@@ -50,36 +56,36 @@
             models may exploit spurious sensitive attribute correlations (e.g. age, gender, race) when solving seemingly 
             unrelated tasks on data coming from different demographic groups.
         </p>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="pt-3" style="text-align: left;">
             With this project page we would like to contribute to the numerous efforts that the research community is 
             currently pursuing towards fair computer vision models. Specifically we present our work dedicated to the 
             definition of a fairness benchmark which spans both face and medical images for classification and landmark 
             detection tasks.
         </p>
 
-        <h5 class="fw-bold pt-5">Tasks</h5>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Tasks</p>
+        <p style="text-align: left;">
             We remark that current unfairness mitigation strategies in computer vision are restricted to classification 
             problems. To overcome this limitation, we include in our benchmark the task of landmark detection on face 
             images of different demographic groups, as the bias related to sensitive attributes can affect the precision 
             with which critical keypoints are located.
         </p>
 
-        <h5 class="fw-bold pt-5">Methods</h5>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Methods</p>
+        <p style="text-align: left;">
             Resolving the fairness issue while maintaining accurate predictions for the target task is a challenge shared 
             with the domain adaptation and generalization literature which focuses on avoiding visual domain biases. 
             Thus, we start our study by investigating the connection between cross-domain learning (CD) and model 
             fairness by evaluating 14 CD learning approaches alongside three state-of-the-art (SOTA) fairness algorithms. 
             We conclude that the former can outperform the latter.
         </p>
-        <p class="pt-3 text-start" style="text-align: justify;">
+        <p class="pt-3 text-start" style="text-align: left;">
             Here is the list of the evaluated methods...
         </p>
         
 
-        <h5 class="fw-bold pt-5">Metrics</h5>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Metrics</p>
+        <p style="text-align: left;">
             Another aspect on which there is still a lot of confusion and open debate is about how systems should be 
             evaluated. There are multiple competing notions of fairness and ways to quantify it. Previous studies 
             measure group fairness by accuracy difference between advantaged and disadvantaged subgroups. However, 
@@ -89,46 +95,46 @@
             analyze several existing group fairness criteria and highlight the lack of a metric that properly 
             aggregates overall performance and fairness level to assess the quality of a model.
         </p>
-        <p class="pt-3 text-start" style="text-align: justify;">
+        <p class="pt-3 text-start" style="text-align: left;">
             List of metrics...
         </p>
 
-        <h5 class="fw-bold pt-5">Datasets</h5>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Datasets</p>
+        <p style="text-align: justify;">
             ...
         </p>
 
-        <h5 class="fw-bold pt-5">Results</h5>
-        <p class="pt-3" style="text-align: justify;">
+        <p class="fw-bold pt-5" style="text-align: left; font-size: 2rem;">Results</p>
+        <p style="text-align: justify;">
             ...
         </p>
         
         <div class="container pt-5">
-            <p class="fw-bold">CelebA - 13 Attributes <i>(gender)</i></p>
+            <p class="fw-bold" style="text-align: left;">CelebA - 13 Attributes <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
 
-            <p class="fw-bold pt-5">CelebA - EyeBags <i>(gender)</i></p>
+            <p class="fw-bold pt-5" style="text-align: left;">CelebA - EyeBags <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags"></div>
 
-            <p class="fw-bold pt-5">CelebA - Chubby <i>(gender)</i></p>
+            <p class="fw-bold pt-5" style="text-align: left;">CelebA - Chubby <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-chubby"></div>
 
-            <p class="fw-bold pt-5">COVID-19 Chest X-Ray <i>(gender)</i></p>
+            <p class="fw-bold pt-5" style="text-align: left;">COVID-19 Chest X-Ray <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="covid-cxr"></div>
 
-            <p class="fw-bold pt-5">Fitzpatrick17k <i>(skin tone)</i></p>
+            <p class="fw-bold pt-5" style="text-align: left;">Fitzpatrick17k <i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="fitzpatrick"></div>
 
-            <p class="fw-bold pt-5">UTKFace - Landmark Detection @ 8% NME</p>
-            <p class="fw-bold pt-1"><i>(skin tone)</i></p>
+            <p class="fw-bold pt-5" style="text-align: left;">UTKFace - Landmark Detection @ 8% NME</p>
+            <p class="fw-bold pt-1" style="text-align: left;"><i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-skintone"></div>
-            <p class="fw-bold pt-1"><i>(age)</i></p>
+            <p class="fw-bold pt-1" style="text-align: left;"><i>(age)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-age"></div>
 
-            <p class="fw-bold pt-5">CelebA - EyeBags [Model Transferability]</p>
+            <p class="fw-bold pt-5" style="text-align: left;">CelebA - EyeBags [Model Transferability]</p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags-transfer"></div>
 
-            <p class="fw-bold pt-5">UTKFace - Landmark Detection [Model Transferability]</p>
+            <p class="fw-bold pt-5" style="text-align: left;">UTKFace - Landmark Detection [Model Transferability]</p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-transfer"></div>
         </div>
         
