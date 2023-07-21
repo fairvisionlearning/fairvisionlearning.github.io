@@ -39,6 +39,7 @@
     <script defer src="tables/utkface_skintone.js"></script>
     <script defer src="tables/utkface_age.js"></script>
     <script defer src="tables/celeba_eyebags_transfer.js"></script>
+    <script defer src="tables/utkface_transfer.js"></script>
 </head>
 
 <body>
@@ -464,31 +465,33 @@
             described in [<a onclick="scrl(r28)" class="hp">28</a>].
         </p>
         
-        <div class="container">
-            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">1. Classification Results</p>
-            <p class="fw-bold" style="text-align: left;">CelebA - 13 Attributes <i>(gender)</i></p>
+        <p class="fw-bold fs-6 pt-5" style="text-align: right; border-bottom: 1px solid black;">01. Classification Results</p>
+        <div class="container results-tables">
+            <p style="text-align: left;"><b>CelebA - 13 Attributes</b> <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-13-attribs"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">CelebA - EyeBags <i>(gender)</i></p>
+            <p class="pt-5" style="text-align: left;"><b>CelebA - EyeBags</b> <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">CelebA - Chubby <i>(gender)</i></p>
+            <p class="pt-5" style="text-align: left;"><b>CelebA - Chubby</b> <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-chubby"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">COVID-19 Chest X-Ray <i>(gender)</i></p>
+            <p class="pt-5" style="text-align: left;"><b>COVID-19 Chest X-Ray</b> <i>(gender)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="covid-cxr"></div>
 
-            <p class="fw-bold pt-5" style="text-align: left;">Fitzpatrick17k <i>(skin tone)</i></p>
+            <p class="pt-5" style="text-align: left;"><b>Fitzpatrick17k</b> <i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="fitzpatrick"></div>
-
-            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">2. Landmark Detection Results</p>
+        </div>
+        
+        <p class="fw-bold fs-6 pt-5" style="text-align: right; border-bottom: 1px solid black;">02. Landmark Detection Results</p>
+        <div class="container results-tables">
             <p class="fw-bold" style="text-align: left;">UTKFace - Landmark Detection @ 8% NME</p>
-            <p class="fw-bold pt-1" style="text-align: left;"><i>(skin tone)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-skintone"></div>
-            <p class="fw-bold pt-1" style="text-align: left;"><i>(age)</i></p>
             <div class="table-responsive d-flex justify-content-center" id="utkface-age"></div>
-            
-            <p class="fw-bold pt-5" style="text-align: left; font-size: 1.5rem;">3. Model Transferability</p>
+        </div>
+
+        <p class="fw-bold fs-6 pt-5" style="text-align: right; border-bottom: 1px solid black;">03. Model Transferability</p>
+        <div class="container results-tables">
             <p class="fw-bold" style="text-align: left;">CelebA - EyeBags</p>
             <div class="table-responsive d-flex justify-content-center" id="celeba-eyebags-transfer"></div>
 

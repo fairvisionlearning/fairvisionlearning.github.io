@@ -21,6 +21,15 @@ tableDiv.appendChild(tableEl);
 //! Head
 const thead = document.createElement("thead");
 tableEl.appendChild(thead);
+
+const trr = document.createElement("tr");
+const sensitive = document.createElement("td");
+sensitive.className = "bbb";
+sensitive.colSpan = "6";
+sensitive.innerHTML = "<i>Skin Tone</i>";
+trr.appendChild(sensitive);
+thead.appendChild(trr);
+
 const tr_head = document.createElement("tr");
 thead.appendChild(tr_head);
 

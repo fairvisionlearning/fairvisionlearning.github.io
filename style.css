@@ -25,6 +25,10 @@ a {
     width: 60%;
 }
 
+.results-tables {
+    width: 75%;
+}
+
 .bbb {
     border-bottom: 1px solid black;
 }
@@ -47,7 +51,7 @@ div > p {
 }
 
 @media only screen and (max-width: 1200px) {
-    .img-teaser, .p-abs {
+    .img-teaser, .p-abs, .results-tables {
         width: 100%;
     }
 
