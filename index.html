@@ -103,10 +103,11 @@
                                 with standard cross-entropy minimization objective, pretrained on ImageNet.
                             </p>
                             <p>
-                                For landmark detection we follow [<a id="a2" onclick="scrl('r2')" class="hp">2</a>, <a id="a3" onclick="scrl('r3')" class="hp">3</a>] and consider ResNet18 
-                                pre-trained on ImageNet with a dedicated 
-                                head composed of deconvolutional layers. It is optimized with an L2 loss to reduce the discrepancy between 
-                                the predicted probability distribution of the location of each landmark and the ground truth
+                                For landmark detection we follow [<a id="a2" onclick="scrl('r2')" class="hp">2</a>, <a id="a3" onclick="scrl('r3')" class="hp">3</a>] 
+                                and consider ResNet18 pre-trained on ImageNet with a dedicated 
+                                head composed of deconvolutional layers. The network is optimized with an 
+                                L2 loss to reduce the discrepancy between the predicted probability distribution 
+                                of the location of each landmark and the ground truth.
                             </p>
                         </td>
                     </tr>
