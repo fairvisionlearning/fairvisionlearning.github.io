@@ -159,7 +159,7 @@
                     <tr>
                         <th style="text-align: right; padding-right: 20px;">CDANN</th>
                         <td style="text-align: left;">
-                            Improves over DANN by matching the conditional data distributions
+                            Improves over <b>>DANN</b by matching the conditional data distributions
                             across domains rather than the marginal distributions. [<a id="a9" onclick="scrl('r9')" class="hp">9</a>]
                         </td>
                     </tr>
@@ -314,7 +314,7 @@
                         <th style="text-align: right; padding-right: 20px;">DEO</th>
                         <td style="text-align: left;">
                             <i>Difference in Equal Opportunity</i>. Measures Fairness by 
-                            \[|P(\hat{y}=1|y=1,a=0)| - |P(\hat{y}=1|y=1,a=1)|\]
+                            \[|P(\hat{y}=1|y=1,a=0) - P(\hat{y}=1|y=1,a=1)|\]
                             where \(\hat{y}\) is the classifiers prediction, \(y\) is the target label and
                             \(a\) is the sensitive attribute. The lower, the better.
                         </td>
@@ -323,7 +323,7 @@
                         <th style="text-align: right; padding-right: 20px;">DEOdds</th>
                         <td style="text-align: left;">
                             <i>Difference in Equalized Odds</i> Measures Fairness by 
-                            \[\sum_{t \in \{0,1\}}|P(\hat{y}=1|y=t,a=0)| - |P(\hat{y}=1|y=t,a=1)|\]
+                            \[\sum_{t \in \{0,1\}}|P(\hat{y}=1|y=t,a=0) - P(\hat{y}=1|y=t,a=1)|\]
                             The lower, the better.
                         </td>
                     </tr>
